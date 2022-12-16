@@ -22,14 +22,13 @@ Implement a Node.js server that provides a RESTful API for managing a list of ta
 -   Use the Express.js framework to build the server.
 -   Use the [Express Validator](https://express-validator.github.io/docs/) middleware to validate the request data.
 -   Use [Jest](https://jestjs.io/) and [SuperTest](https://github.com/visionmedia/supertest) to write automated tests for the API.
--   Use [Istanbul](https://istanbul.js.org/) to generate a code coverage report for the tests.
--   Use [ESLint](https://eslint.org/) to lint the code and enforce a consistent style.
--   Use [Prettier](https://prettier.io/) to automatically format the code according to a consistent style.
--   Use [Swagger](https://swagger.io/) or [JSDoc](http://usejsdoc.org/) to document the API.
 
 ## Bonus
 -----
 
+-   Use [ESLint](https://eslint.org/) to lint the code and enforce a consistent style. Airbnb style guide.
+-   Use [Prettier](https://prettier.io/) to automatically format the code according to a consistent style.
+-   Use [Swagger](https://swagger.io/) or [JSDoc](http://usejsdoc.org/) to document the API.
 -   Add authentication to the API using JSON Web Tokens (JWTs). Require a valid JWT to access any of the API endpoints.
 -   Implement filtering, pagination, and sorting for the `GET /tasks` endpoint. Allow the client to specify query parameters to filter the tasks by completion status, to paginate through the results, and to sort the results by a specific field.
 

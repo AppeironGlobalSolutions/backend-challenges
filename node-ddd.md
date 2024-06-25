@@ -22,6 +22,8 @@ Evaluation Criteria
 
 -   Clean and maintainable code
 -   Proper use of DDD principles
+-   Proper implementation of Hexagonal Architecture
+-   Proper implementation of SOLID principles
 -   Proper implementation of CRUD operations and filtering
 -   Proper implementation of user authentication and authorization
 -   Proper error handling and input validation

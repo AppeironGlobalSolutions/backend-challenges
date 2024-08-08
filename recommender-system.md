@@ -1,4 +1,4 @@
-# Advanced API Challenge: Product Recommendation System
+# Product Recommendation System
 
 ## Objective
 Build a RESTful API that recommends products based on given criteria. The API should include a service named `Brain` with a method `generateProductSuggestions` that receives an array of products and returns an array of recommended products. The recommendation engine should be flexible to allow different strategies and include metadata in the response.

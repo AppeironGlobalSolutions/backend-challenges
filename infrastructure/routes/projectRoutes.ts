@@ -6,7 +6,7 @@ import { authorizeRole } from '../middlewares/authorizationMiddleware';
 export const projectRouter = Router();
 
 projectRouter.post('/', authenticateToken, authorizeRole(['admin', 'user']), createProject);
+projectRouter.get('/filtered', authenticateToken, getUserProjects);
 projectRouter.get('/', authenticateToken, getProjects);
-projectRouter.get('/user', authenticateToken, getUserProjects);
 projectRouter.put('/:id', authenticateToken, authorizeRole(['admin', 'user']), updateProject);
 projectRouter.delete('/:id', authenticateToken, authorizeRole(['admin']), deleteProject);

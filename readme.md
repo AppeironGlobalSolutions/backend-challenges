@@ -22,40 +22,41 @@ This project is a RESTful API developed with Node.js, TypeScript, Express, and M
 
 1. Clone the repository:
 
-```sh
-git clone https://github.com/NicolasMitre/backend-challenges.git
-cd backend-challenges
-```
+    ```sh
+    git clone https://github.com/NicolasMitre/backend-challenges.git
+    cd backend-challenges
+    ```
 
 2. Install dependencies:
 
-```sh
-npm install
-```
+    ```sh
+    npm install
+    ```
 
-3. Configure the database in .env
+3. Configure the database in `.env`:
 
- ```env
-  MONGO_URI = 'mongodb://...'
-  ```
+    ```env
+    MONGO_URI='mongodb://...'
+    JWT_SECRET='your_jwt_secret'
+    ```
 
 4. Compile the project:
 
-```sh
-npx tsc
-```
+    ```sh
+    npx tsc
+    ```
 
 5. Start the server:
 
-```sh
-node dist/index.js
-```
+    ```sh
+    node dist/index.js
+    ```
 
-or
+    or
 
-```sh
-npm run start
-```
+    ```sh
+    npm run start
+    ```
 
 ## Usage
 
@@ -63,180 +64,180 @@ npm run start
 
 - **Register user:**
 
-  ```http
-  POST /api/users/register
-  ```
+    ```http
+    POST /api/users/register
+    ```
 
-  **Body:**
+    **Body:**
 
-  ```json
-  {
-    "username": "admin",
-    "password": "adminpassword",
-    "role": "admin"
-  }
-  ```
+    ```json
+    {
+      "username": "admin",
+      "password": "adminpassword",
+      "role": "admin"
+    }
+    ```
 
 - **Log in:**
 
-  ```http
-  POST /api/users/login
-  ```
+    ```http
+    POST /api/users/login
+    ```
 
-  **Body:**
+    **Body:**
 
-  ```json
-  {
-    "username": "admin",
-    "password": "adminpassword"
-  }
-  ```
+    ```json
+    {
+      "username": "admin",
+      "password": "adminpassword"
+    }
+    ```
 
 ### Project Endpoints
 
 - **Create project:**
 
-  ```http
-  POST /api/projects
-  ```
+    ```http
+    POST /api/projects
+    ```
 
-  **Headers:**
+    **Headers:**
 
-  ```http
-  Authorization: Bearer <token>
-  ```
+    ```http
+    Authorization: Bearer <token>
+    ```
 
-  **Body:**
+    **Body:**
 
-  ```json
-  {
-    "title": "New Project",
-    "description": "Project description",
-    "dueDate": "2023-12-31",
-    "status": "not started"
-  }
-  ```
+    ```json
+    {
+      "title": "New Project",
+      "description": "Project description",
+      "dueDate": "2023-12-31",
+      "status": "not started"
+    }
+    ```
 
 - **Get projects:**
 
-  ```http
-  GET /api/projects
-  ```
+    ```http
+    GET /api/projects
+    ```
 
-  **Headers:**
+    **Headers:**
 
-  ```http
-  Authorization: Bearer <token>
-  ```
+    ```http
+    Authorization: Bearer <token>
+    ```
 
 - **Update project:**
 
-  ```http
-  PUT /api/projects/:id
-  ```
+    ```http
+    PUT /api/projects/:id
+    ```
 
-  **Headers:**
+    **Headers:**
 
-  ```http
-  Authorization: Bearer <token>
-  ```
+    ```http
+    Authorization: Bearer <token>
+    ```
 
-  **Body:**
+    **Body:**
 
-  ```json
-  {
-    "title": "Updated Project",
-    "description": "Updated description",
-    "dueDate": "2023-12-31",
-    "status": "in progress"
-  }
-  ```
+    ```json
+    {
+      "title": "Updated Project",
+      "description": "Updated description",
+      "dueDate": "2023-12-31",
+      "status": "in progress"
+    }
+    ```
 
 - **Delete project:**
 
-  ```http
-  DELETE /api/projects/:id
-  ```
+    ```http
+    DELETE /api/projects/:id
+    ```
 
-  **Headers:**
+    **Headers:**
 
-  ```http
-  Authorization: Bearer <token>
-  ```
+    ```http
+    Authorization: Bearer <token>
+    ```
 
 ### Task Endpoints
 
 - **Create task:**
 
-  ```http
-  POST /api/tasks
-  ```
+    ```http
+    POST /api/tasks
+    ```
 
-  **Headers:**
+    **Headers:**
 
-  ```http
-  Authorization: Bearer <token>
-  ```
+    ```http
+    Authorization: Bearer <token>
+    ```
 
-  **Body:**
+    **Body:**
 
-  ```json
-  {
-    "title": "New Task",
-    "description": "Task description",
-    "dueDate": "2023-12-31",
-    "status": "not started",
-    "projectId": "<project_id>",
-    "assignedTo": "<user_id>"
-  }
-  ```
+    ```json
+    {
+      "title": "New Task",
+      "description": "Task description",
+      "dueDate": "2023-12-31",
+      "status": "not started",
+      "projectId": "<project_id>",
+      "assignedTo": "<user_id>"
+    }
+    ```
 
 - **Get tasks:**
 
-  ```http
-  GET /api/tasks
-  ```
+    ```http
+    GET /api/tasks
+    ```
 
-  **Headers:**
+    **Headers:**
 
-  ```http
-  Authorization: Bearer <token>
-  ```
+    ```http
+    Authorization: Bearer <token>
+    ```
 
 - **Update task:**
 
-  ```http
-  PUT /api/tasks/:id
-  ```
+    ```http
+    PUT /api/tasks/:id
+    ```
 
-  **Headers:**
+    **Headers:**
 
-  ```http
-  Authorization: Bearer <token>
-  ```
+    ```http
+    Authorization: Bearer <token>
+    ```
 
-  **Body:**
+    **Body:**
 
-  ```json
-  {
-    "title": "Updated Task",
-    "description": "Updated description",
-    "dueDate": "2023-12-31",
-    "status": "in progress"
-  }
-  ```
+    ```json
+    {
+      "title": "Updated Task",
+      "description": "Updated description",
+      "dueDate": "2023-12-31",
+      "status": "in progress"
+    }
+    ```
 
 - **Delete task:**
 
-  ```http
-  DELETE /api/tasks/:id
-  ```
+    ```http
+    DELETE /api/tasks/:id
+    ```
 
-  **Headers:**
+    **Headers:**
 
-  ```http
-  Authorization: Bearer <token>
-  ```
+    ```http
+    Authorization: Bearer <token>
+    ```
 
 ## Middlewares
 
@@ -270,5 +271,3 @@ If you wish to contribute to this project, please follow these steps:
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 ```
-
-This `README.md` file provides an overview of your project, including installation instructions, usage, available endpoints, middlewares, and how to contribute to the project. You can further customize it according to your specific needs.

@@ -1,49 +1,71 @@
 import { Request, Response } from 'express';
-import { Project } from '../../domain/entities/project.entity';
+import { body, validationResult } from 'express-validator';
+import { ProjectService } from '../../domain/services/project.service';
 
-export const createProject = async (req: Request, res: Response) => {
-  const { title, description, dueDate, status } = req.body;
-  const newProject = new Project({ title, description, dueDate, status });
-  
-  await newProject.save();
-  res.status(201).send('Project created');
-};
+const projectService = new ProjectService();
+
+export const createProject = [
+  body('title').isString().notEmpty(),
+  body('description').isString().notEmpty(),
+  body('dueDate').isISO8601().toDate(),
+  body('status').isIn(['pending', 'in-progress', 'completed']),
+
+  async (req: Request, res: Response) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    const { title, description, dueDate, status } = req.body;
+
+    try {
+      await projectService.createProject({ title, description, dueDate, status });
+      res.status(201).send('Project created');
+    } catch (err) {
+      res.status(500).json({ message: 'Error creating project', error: err });
+    }
+  }
+];
 
 export const getProjects = async (req: Request, res: Response) => {
-  const projects = await Project.find();
-  res.json(projects);
+  try {
+    const projects = await projectService.getProjects();
+    res.json(projects);
+  } catch (err) {
+    res.status(500).json({ message: 'Error retrieving projects', error: err });
+  }
 };
 
 export const updateProject = async (req: Request, res: Response) => {
   const { id } = req.params;
-  const updatedProject = await Project.findByIdAndUpdate(id, req.body, { new: true });
-  
-  res.json(updatedProject);
+
+  try {
+    const updatedProject = await projectService.updateProject(id, req.body);
+    res.json(updatedProject);
+  } catch (err) {
+    res.status(500).json({ message: 'Error updating project', error: err });
+  }
 };
 
 export const deleteProject = async (req: Request, res: Response) => {
   const { id } = req.params;
-  await Project.findByIdAndDelete(id);
-  
-  res.send('Project deleted');
+
+  try {
+    await projectService.deleteProject(id);
+    res.send('Project deleted');
+  } catch (err) {
+    res.status(500).json({ message: 'Error deleting project', error: err });
+  }
 };
 
 export const getUserProjects = async (req: Request, res: Response) => {
-    const projectId = (req as any).user._id;
-    const status = req.query.status;
+  const projectId = (req as any).user.projectId;
+  const status = req.query.status;
 
-    console.log(req);
-    
-  
-    try {
-      const query: any = { projectId };
-      if (status) {
-        query.status = status;
-      }
-  
-      const projects = await Project.find(query);
-      res.json(projects);
-    } catch (err) {
-      res.status(500).json({ message: 'Error retrieving projects', error: err });
-    }
-  };
+  try {
+    const projects = await projectService.getUserProjects(projectId, status as string);
+    res.json(projects);
+  } catch (err) {
+    res.status(500).json({ message: 'Error retrieving projects', error: err });
+  }
+};

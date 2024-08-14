@@ -4,6 +4,7 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
 export const registerUser = async (req: Request, res: Response) => {
+    
   const { username, password } = req.body;
   
   const hashedPassword = await bcrypt.hash(password, 10);

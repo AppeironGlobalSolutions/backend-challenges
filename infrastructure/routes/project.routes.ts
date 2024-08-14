@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { createProject, getProjects, updateProject, deleteProject, getUserProjects } from '../controllers/projectController';
+import { createProject, getProjects, updateProject, deleteProject, getUserProjects } from '../controllers/project.controller';
 import { authenticateToken } from '../middlewares/authMiddleware';
 import { authorizeRole } from '../middlewares/authorizationMiddleware';
 

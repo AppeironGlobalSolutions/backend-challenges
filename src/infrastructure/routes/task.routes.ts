@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { createTask, getTasks, updateTask, deleteTask, getUserTasks } from '../controllers/taskController';
+import { createTask, getTasks, updateTask, deleteTask, getUserTasks } from '../controllers/task.controller';
 import { authenticateToken } from '../middlewares/authMiddleware';
 import { authorizeRole } from '../middlewares/authorizationMiddleware';
 

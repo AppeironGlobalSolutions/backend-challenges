@@ -1,9 +1,9 @@
 import express, { Application } from 'express';
 import mongoose from 'mongoose';
 import { json } from 'body-parser';
-import { userRouter } from './infrastructure/routes/userRoutes';
-import { projectRouter } from './infrastructure/routes/projectRoutes';
-import { taskRouter } from './infrastructure/routes/taskRoutes';
+import { userRouter } from './src/infrastructure/routes/user.routes';
+import { projectRouter } from './src/infrastructure/routes/project.routes';
+import { taskRouter } from './src/infrastructure/routes/task.routes';
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -25,7 +25,7 @@ if (!mongoURI) {
 }
 
 mongoose.connect(mongoURI).then(() => {
-  console.log('Connected to MongoDB'); //improve this with a logger
+  console.log('Connected to MongoDB');
   app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
   });

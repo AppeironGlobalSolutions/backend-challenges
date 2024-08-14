@@ -1,4 +1,3 @@
-// models/comment.ts
 import { Schema, model, Document } from 'mongoose';
 
 interface IComment extends Document {

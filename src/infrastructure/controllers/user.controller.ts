@@ -5,12 +5,10 @@ import { UserService } from '../../domain/services/user.service';
 const userService = new UserService();
 
 export const registerUser = [
-  // Validaciones
   body('username').isString().notEmpty(),
   body('password').isString().notEmpty(),
   body('role').isString().notEmpty(),
 
-  // Controlador
   async (req: Request, res: Response) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {

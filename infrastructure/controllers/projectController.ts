@@ -27,3 +27,23 @@ export const deleteProject = async (req: Request, res: Response) => {
   
   res.send('Project deleted');
 };
+
+export const getUserProjects = async (req: Request, res: Response) => {
+    const projectId = (req as any).user._id;
+    const status = req.query.status;
+
+    console.log(req);
+    
+  
+    try {
+      const query: any = { projectId };
+      if (status) {
+        query.status = status;
+      }
+  
+      const projects = await Project.find(query);
+      res.json(projects);
+    } catch (err) {
+      res.status(500).json({ message: 'Error retrieving projects', error: err });
+    }
+  };

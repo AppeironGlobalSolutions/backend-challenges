@@ -14,6 +14,24 @@ export const getTasks = async (req: Request, res: Response) => {
   res.json(tasks);
 };
 
+export const getUserTasks = async (req: Request, res: Response) => {
+    const userId = (req as any).user.userId;
+    
+    const status = req.query.status;
+  
+    try {
+      const query: any = { assignedTo: userId };
+      if (status) {
+        query.status = status;
+      }
+  
+      const tasks = await Task.find(query);
+      res.json(tasks);
+    } catch (err) {
+      res.status(500).json({ message: 'Error retrieving tasks', error: err });
+    }
+  };
+
 export const updateTask = async (req: Request, res: Response) => {
   const { id } = req.params;
   const updatedTask = await Task.findByIdAndUpdate(id, req.body, { new: true });

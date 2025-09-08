@@ -15,6 +15,8 @@ Think of this as the **scheduling kernel** of a real product: the CORE should be
 
 > There **must** be an **efficient table-assignment algorithm**.
 
+You may use **any tools, frameworks, libraries, cloud services, and techniques** you deem appropriate to solve the challenge (including AI), as long as you **justify your choices** in the README and credit external sources or templates when relevant. The work must be done **individually** (no direct third-party collaboration). After submission, you will conduct a brief **technical defense**: demo the working solution, walk through the architecture and trade-offs, and answer questions on design, testing, reliability, and operability.
+
 
 ## 2) Time Conventions
 

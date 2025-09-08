@@ -1,6 +1,5 @@
 # WokiLite - Restaurant Reservation System
 
----
 
 ## 1) Objective
 
@@ -16,7 +15,6 @@ Think of this as the **scheduling kernel** of a real product: the CORE should be
 
 > There **must** be an **efficient table-assignment algorithm**.
 
----
 
 ## 2) Time Conventions
 
@@ -26,7 +24,6 @@ Think of this as the **scheduling kernel** of a real product: the CORE should be
 * **Timezone:** IANA zone at restaurant level (e.g., `America/Argentina/Buenos_Aires`).
 * **Shifts:** if present, reservations must fall within shift windows; otherwise the day is fully available.
 
----
 
 ## 3) Domain Model
 
@@ -88,7 +85,6 @@ interface Reservation {
 }
 ```
 
----
 
 ## 4) CORE Requirements (target: \~2 hours)
 
@@ -123,7 +119,6 @@ interface Reservation {
 
 * Use `400` (invalid format), `404` (entity not found), `409` (no capacity), `422` (outside service window or policy violation).
 
----
 
 ## 5) API Specification
 
@@ -237,7 +232,6 @@ GET /reservations/day?restaurantId=R1&date=2025-09-08[&sectorId=S1]
 }
 ```
 
----
 
 ## 6) Acceptance Criteria (CORE)
 
@@ -249,7 +243,6 @@ GET /reservations/day?restaurantId=R1&date=2025-09-08[&sectorId=S1]
 * **Daily listing** works with and without `sectorId`.
 * Correct error codes/messages (`400/404/409/422`).
 
----
 
 ## 7) Minimal Test Cases
 
@@ -262,7 +255,6 @@ GET /reservations/day?restaurantId=R1&date=2025-09-08[&sectorId=S1]
 7. **Daily listing:** with and without `sectorId` returns correct sets.
 8. **Timestamps:** verify `createdAt/updatedAt` on create/cancel.
 
----
 
 ## 8) BONUS (ordered by priority)
 
@@ -334,7 +326,6 @@ Body: { restaurantId, sectorId, date: "YYYY-MM-DD", slotStartISO: "..." }
 
 * Return a summary of changes (before → after).
 
----
 
 ## 9) Seed Data (example)
 
@@ -365,7 +356,6 @@ Body: { restaurantId, sectorId, date: "YYYY-MM-DD", slotStartISO: "..." }
 }
 ```
 
----
 
 ## 10) Technical Requirements
 
@@ -378,7 +368,6 @@ Body: { restaurantId, sectorId, date: "YYYY-MM-DD", slotStartISO: "..." }
 * Logs such as `{ requestId, sectorId, partySize, operation, durationMs, outcome }`.
 * Simple counters (created/cancelled, conflict rate, hold expirations).
 
----
 
 ## 11) Deliverables
 

@@ -1,10 +1,10 @@
 import { NextFunction, Request, Response, Router } from 'express';
 import { Logger } from 'pino';
-import { IWokiBrain } from './domain/wokibrain';
 import { CreateBookingDTO } from './dtos/inbound/create-booking.dto';
 import { DiscoverQueryDTO } from './dtos/inbound/discovery-params.dto';
 import { ListBookingsDTO } from './dtos/inbound/list-bookings.dto';
 import { validate } from './utils/middleware/validate';
+import { IWokiBrain } from './wokibrain';
 
 export class MainController {
   // this should be separaeted into multiple controllers in a real app

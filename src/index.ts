@@ -5,12 +5,12 @@ import { IdempotencyService } from './domain/bookings/service/idempotency.servic
 import { RestaurantService } from './domain/restaurant/services/restaurant.service';
 import { Repository } from './domain/shared/respositories/wokibrain.repository';
 import { TablesService } from './domain/tables/services/tables.service';
-import { WokiBrain } from './domain/wokibrain';
 import { MainController } from './routes';
 import logger from './utils/logger/logger';
 import { errorHandler } from './utils/middleware/error-handler';
 import { rateLimiter } from './utils/middleware/rateLimiter';
 import requestLogger from './utils/middleware/requestLogger';
+import { WokiBrain } from './wokibrain';
 
 const app = express();
 

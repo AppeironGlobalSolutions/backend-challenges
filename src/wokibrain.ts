@@ -1,13 +1,13 @@
 import { Logger } from 'pino';
-import { CreateBookingDTOInbound } from '../dtos/inbound/create-booking.dto';
-import { DiscoverQueryDTOType } from '../dtos/inbound/discovery-params.dto';
-import { DiscoveryOutboundDTO } from '../dtos/outbound/discovery.outbound.dto';
-import { ApiError } from '../utils/errors/errors';
-import logger from '../utils/logger/logger';
-import { IBookingService } from './bookings/service/booking.service';
-import { IRestaurantService } from './restaurant/services/restaurant.service';
-import { Booking } from './shared/models/models';
-import { ITablesService } from './tables/services/tables.service';
+import { IBookingService } from './domain/bookings/service/booking.service';
+import { IRestaurantService } from './domain/restaurant/services/restaurant.service';
+import { Booking } from './domain/shared/models/models';
+import { ITablesService } from './domain/tables/services/tables.service';
+import { CreateBookingDTOInbound } from './dtos/inbound/create-booking.dto';
+import { DiscoverQueryDTOType } from './dtos/inbound/discovery-params.dto';
+import { DiscoveryOutboundDTO } from './dtos/outbound/discovery.outbound.dto';
+import { ApiError } from './utils/errors/errors';
+import logger from './utils/logger/logger';
 
 export interface IWokiBrain {
   // This should be defined in a separate interface file in a real app

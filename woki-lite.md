@@ -11,7 +11,7 @@ Design and implement **WokiLite** — a lean, high-signal prototype of **Woki’
 * Expose a clean **REST API** with clear error semantics.
 * Store/return **customer details** alongside reservations for backoffice visibility.
 
-Think of this as the **scheduling kernel** of a real product: the CORE should be shippable in \~2 hours, and BONUS items are where strong engineers can stand out (deploys, DB, optimization, combinations, etc.).
+Think of this as the **scheduling kernel** of a real product: the CORE should be shippable in hours, and BONUS items are where strong engineers can stand out (deploys, DB, optimization, combinations, etc.).
 
 > There **must** be an **efficient table-assignment algorithm**.
 
@@ -88,7 +88,7 @@ interface Reservation {
 ```
 
 
-## 4) CORE Requirements (target: \~2 hours)
+## 4) CORE Requirements
 
 1. **Availability (15-min slots) per sector**
 

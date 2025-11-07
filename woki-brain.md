@@ -1,7 +1,5 @@
 # WokiBrain
 
-**Estimated Time:** 45–60 minutes
-
 > **Purpose (Woki):** A compact, Woki-branded challenge that discovers **when** and **how** to seat a party using **single tables or table combinations**. Focus on gap discovery, deterministic **WokiBrain** selection, and a minimal yet robust API.
 
 ---
@@ -24,7 +22,7 @@ Implement **WokiBrain**, a small booking engine for restaurants that:
 
 | Aspect | Description |
 |--------|-------------|
-| **Grid** | Fixed 15-minute granularity |
+| **Grid** | Fixed 15-te granularity |
 | **Durations** | Multiples of 15 minutes (min 30, max 180 **suggested**) |
 | **Intervals** | **[start, end)** (end exclusive); adjacent bookings do not conflict |
 | **Timezone** | IANA per **Restaurant** (e.g., `America/Argentina/Buenos_Aires`) |
